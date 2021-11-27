@@ -50,7 +50,7 @@ Page {
                 top : pagehead.bottom
             }
 
-            Image {
+            HighlightImage {
                 id : img1
                 anchors {
                     horizontalCenter: parent.horizontalCenter
@@ -59,27 +59,11 @@ Page {
                 }
                 fillMode: Image.PreserveAspectFit
                 source: "../img/usb_norm.png"
+                color: Theme.primaryColor
                 width: 250 * resScale
                 height: 200 * resScale
-                layer.effect: ShaderEffect {
-                    property color color: Theme.primaryColor
-
-                    fragmentShader: "
-                    varying mediump vec2 qt_TexCoord0;
-                    uniform highp float qt_Opacity;
-                    uniform lowp sampler2D source;
-                    uniform highp vec4 color;
-                    void main() {
-                        highp vec4 pixelColor = texture2D(source, qt_TexCoord0);
-                        gl_FragColor = vec4(mix(pixelColor.rgb/max(pixelColor.a, 0.00390625), color.rgb/max(color.a, 0.00390625), color.a) * pixelColor.a, pixelColor.a) * qt_Opacity;
-                    }
-                    "
-                }
-                layer.enabled: true
-                layer.samplerName: "source"
-
             }
-            Image {
+            HighlightImage {
                 id : img2
                 anchors {
                     horizontalCenter: parent.horizontalCenter
@@ -88,24 +72,9 @@ Page {
                 }
                 fillMode: Image.PreserveAspectFit
                 source: "../img/usb_mini.png"
+                color: Theme.primaryColor
                 width: 250 * resScale
                 height: 200 * resScale
-                layer.effect: ShaderEffect {
-                    property color color: Theme.primaryColor
-
-                    fragmentShader: "
-                    varying mediump vec2 qt_TexCoord0;
-                    uniform highp float qt_Opacity;
-                    uniform lowp sampler2D source;
-                    uniform highp vec4 color;
-                    void main() {
-                        highp vec4 pixelColor = texture2D(source, qt_TexCoord0);
-                        gl_FragColor = vec4(mix(pixelColor.rgb/max(pixelColor.a, 0.00390625), color.rgb/max(color.a, 0.00390625), color.a) * pixelColor.a, pixelColor.a) * qt_Opacity;
-                    }
-                    "
-                }
-                layer.enabled: true
-                layer.samplerName: "source"
             }
 
             Separator {
