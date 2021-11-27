@@ -73,6 +73,7 @@ Page {
 
         Column {
             id: column
+            width: page.width
             anchors {
                 top: pagehead.bottom
             }

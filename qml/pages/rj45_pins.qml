@@ -68,9 +68,9 @@ Page {
 
         Column {
             id: column
-            anchors {
-                top: pagehead.bottom
-            }
+            width: page.width
+            anchors.top: pagehead.bottom
+
             SectionHeader {
                 text: qsTr("Ethernet male")
             }

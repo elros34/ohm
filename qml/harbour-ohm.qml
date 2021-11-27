@@ -35,6 +35,9 @@ import "pages"
 ApplicationWindow
 {
     id: mainapp
+    allowedOrientations: defaultAllowedOrientations
+    _defaultPageOrientations: allowedOrientations
+
     property bool largeScreen: Screen.sizeCategory === Screen.Large
                                || Screen.sizeCategory === Screen.ExtraLarge
     property bool mediumScreen: Screen.width >= 1080 && Screen.width < 1536
