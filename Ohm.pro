@@ -78,8 +78,10 @@ OTHER_FILES += \
     qml/img/vga_icon.png \
     qml/img/vga_female.png \
     qml/pages/vga_pins.qml \
-    qml/img/usb_norm.png \
-    qml/img/usb_mini.png \
+    qml/img/usb_A_receptacle.png \
+    qml/img/usb_A_plug.png \
+    qml/img/usb_B_receptacle.png \
+    qml/img/usb_B_plug.png \
     qml/pages/usb_pins.qml \
     qml/pages/db25_pins.qml \
     qml/pages/rj45_pins.qml \

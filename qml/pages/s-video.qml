@@ -143,7 +143,6 @@ Page {
 
             PinsDetails {
                 model: pagesModel
-                pinTextMaxWidth: textMetrics.width
             }
             SectionHeader {
                 text: qsTr("7 pins")

@@ -4,6 +4,7 @@ import "components/"
 
 Page {
     id: page
+    // TODO: test Theme.pixelRatio
     property int resScale: mainapp.smallScreen ? 1 : mainapp.mediumScreen ? 2 : 2
 
     ListModel {
@@ -11,70 +12,141 @@ Page {
 
         ListElement {
             pin : qsTr("PIN 1")
-            col : ""
-            title: qsTr("Ground")
-            description : qsTr("Ground")
+            col : qsTr("Red")
+            title: qsTr("VBUS")
+            description : qsTr("VCC (+5 V)")
         }
         ListElement {
             pin : qsTr("PIN 2")
-            col : ""
-            title: qsTr("Data+")
-            description: qsTr("Data+")
-        }
-        ListElement {
-            pin : qsTr("PIN 3")
-            col : ""
-            title: qsTr("Data−")
+            col : qsTr("White")
+            title: qsTr("D-")
             description: qsTr("Data−")
         }
         ListElement {
+            pin : qsTr("PIN 3")
+            col : qsTr("Green")
+            title: qsTr("D+")
+            description: qsTr("Data+")
+        }
+        ListElement {
             pin : qsTr("PIN 4")
-            col : ""
-            title: qsTr("VCC (+5 V)")
-            description : qsTr("VCC (+5 V)")
+            col : qsTr("Black")
+            title: qsTr("GND")
+            description : qsTr("Ground")
         }
     }
 
     SilicaFlickable {
         anchors.fill: parent
-        contentHeight: column.height + pagehead.height
-        PageHeader {
-            id : pagehead
-            title: qsTr("USB pin assignments")
-        }
+        contentHeight: column.height
 
         Column {
             id : column
             width: page.width
-            anchors {
-                top : pagehead.bottom
+
+            PageHeader {
+                id : pagehead
+                title: qsTr("USB pin assignments")
             }
 
-            HighlightImage {
-                id : img1
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    topMargin: Theme.paddingSmall / 4
-                    bottomMargin: Theme.paddingSmall / 4
-                }
-                fillMode: Image.PreserveAspectFit
-                source: "../img/usb_norm.png"
-                color: Theme.primaryColor
-                width: 250 * resScale
-                height: 200 * resScale
+            SectionHeader {
+                text: qsTr("USB A")
             }
-            HighlightImage {
-                id : img2
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    topMargin: Theme.paddingSmall / 4
-                    bottomMargin: Theme.paddingSmall / 4
+
+            Row {
+                spacing: Theme.paddingLarge
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                Column {
+                    spacing: Theme.paddingSmall
+                    anchors.verticalCenter: parent.verticalCenter
+                    Label {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Male plug")
+                        font.family: Theme.fontFamilyHeading
+                        font.pixelSize: Theme.fontSizeSmall
+                        color: Theme.secondaryHighlightColor
+                    }
+
+                    HighlightImage {
+                        fillMode: Image.PreserveAspectFit
+                        color: Theme.primaryColor
+                        scale: resScale
+                        source: "../img/usb_A_plug.png"
+                    }
                 }
-                fillMode: Image.PreserveAspectFit
-                source: "../img/usb_mini.png"
-                color: Theme.primaryColor
-                width: 250 * resScale
-                height: 200 * resScale
+
+                Column {
+                    spacing: Theme.paddingSmall
+                    anchors.verticalCenter: parent.verticalCenter
+                    Label {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Female receptacle")
+                        font.family: Theme.fontFamilyHeading
+                        font.pixelSize: Theme.fontSizeSmall
+                        color: Theme.secondaryHighlightColor
+                    }
+
+                    HighlightImage {
+                        fillMode: Image.PreserveAspectFit
+                        color: Theme.primaryColor
+                        scale: resScale
+                        source: "../img/usb_A_receptacle.png"
+                    }
+                }
+            }
+
+
+            SectionHeader {
+                text: qsTr("USB B")
+            }
+
+            Row {
+                spacing: Theme.paddingLarge
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                Column {
+                    spacing: Theme.paddingSmall
+                    anchors.verticalCenter: parent.verticalCenter
+                    Label {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Male plug")
+                        font.family: Theme.fontFamilyHeading
+                        font.pixelSize: Theme.fontSizeSmall
+                        color: Theme.secondaryHighlightColor
+                    }
+
+                    HighlightImage {
+                        fillMode: Image.PreserveAspectFit
+                        color: Theme.primaryColor
+                        scale: resScale
+                        source: "../img/usb_B_plug.png"
+                    }
+                }
+
+                Column {
+                    spacing: Theme.paddingSmall
+                    anchors.verticalCenter: parent.verticalCenter
+                    Label {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: qsTr("Female receptacle")
+                        font.family: Theme.fontFamilyHeading
+                        font.pixelSize: Theme.fontSizeSmall
+                        color: Theme.secondaryHighlightColor
+                    }
+
+                    HighlightImage {
+                        fillMode: Image.PreserveAspectFit
+                        color: Theme.primaryColor
+                        scale: resScale
+                        source: "../img/usb_B_receptacle.png"
+                    }
+                }
+            }
+
+            Item {
+                width: 1
+                height: Theme.paddingMedium
             }
 
             Separator {
