@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import "components/"
 
 Page {
     id: page
@@ -36,7 +37,7 @@ Page {
 
     SilicaFlickable {
         anchors.fill: parent
-        contentHeight: column.height + pagehead.height + list.height
+        contentHeight: column.height + pagehead.height
         PageHeader {
             id : pagehead
             title: qsTr("USB pin assignments")
@@ -117,58 +118,8 @@ Page {
 
             VerticalScrollDecorator {}
 
-            Repeater {
-                id : list
-                model : pagesModel
-                anchors.bottomMargin: Theme.paddingLarge
-
-                ComboBox {
-                    id : combx
-                    // height : Theme.itemSizeSmall / 1.5
-                    width : parent.width
-                    currentIndex: -1
-                    menu: ContextMenu {
-                        MenuItem {
-                            Label {
-                                text : pagesModel.get(index).description
-                                font.pixelSize: Theme.fontSizeExtraSmall / 1.5 * resScale
-                                color : Theme.primaryColor
-                                anchors {
-                                    verticalCenter: parent.verticalCenter
-                                    horizontalCenter: parent.horizontalCenter
-                                }
-                            }
-                            onClicked: combx.currentIndex = -1
-                        }
-                    }
-                    Label {
-                        anchors {
-                            left : parent.horizontalCenter
-                            leftMargin: Theme.paddingLarge
-                            rightMargin: Theme.paddingLarge
-                            verticalCenter: parent.verticalCenter
-                        }
-                        height: Theme.itemSizeSmall / 1.5
-                        text: model.title
-                        font.pixelSize: Theme.fontSizeExtraSmall
-                        color: Theme.primaryColor
-                    }
-                    Label {
-                        id : pin
-                        anchors {
-                            left : parent.left
-                            leftMargin: Theme.paddingLarge
-                            rightMargin: Theme.paddingLarge
-                            verticalCenter: parent.verticalCenter
-                        }
-                        height: Theme.itemSizeSmall / 1.5
-                        text: model.pin
-                        font.pixelSize: Theme.fontSizeExtraSmall
-                        color: Theme.primaryColor
-                    }
-
-                }
-
+            PinsDetails {
+                model: pagesModel
             }
         }
     }

@@ -82,9 +82,11 @@ OTHER_FILES += \
     qml/img/usb_mini.png \
     qml/pages/usb_pins.qml \
     qml/pages/db25_pins.qml \
+    qml/pages/rj45_pins.qml \
     qml/pages/dipswitch.qml \
     qml/pages/serial_pins.qml \
     qml/pages/midi.qml \
+    qml/pages/components/PinsDetails.qml \
     qml/img/usb_icon.png \
     qml/img/seriell_male.png \
     qml/img/seriell_icon.png \
