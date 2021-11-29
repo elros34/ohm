@@ -30,6 +30,12 @@ Page {
         }
         ListElement {
             pin : qsTr("PIN 4")
+            col : ""
+            title: qsTr("ID")
+            description: qsTr("ID")
+        }
+        ListElement {
+            pin : qsTr("PIN 5")
             col : qsTr("Black")
             title: qsTr("GND")
             description : qsTr("Ground")
@@ -46,11 +52,11 @@ Page {
 
             PageHeader {
                 id : pagehead
-                title: qsTr("USB pin assignments")
+                title: qsTr("Micro USB pin assignments")
             }
 
             SectionHeader {
-                text: qsTr("USB A")
+                text: qsTr("Micro-B")
             }
 
             Row {
@@ -72,7 +78,7 @@ Page {
                         fillMode: Image.PreserveAspectFit
                         color: Theme.primaryColor
                         scale: resScale
-                        source: "../img/usb_a_plug.png"
+                        source: "../img/micro_usb_b_plug.png"
                     }
                 }
 
@@ -91,14 +97,14 @@ Page {
                         fillMode: Image.PreserveAspectFit
                         color: Theme.primaryColor
                         scale: resScale
-                        source: "../img/usb_a_receptacle.png"
+                        source: "../img/micro_usb_b_receptacle.png"
                     }
                 }
             }
 
 
             SectionHeader {
-                text: qsTr("USB B")
+                text: qsTr("Mini-B")
             }
 
             Row {
@@ -120,7 +126,7 @@ Page {
                         fillMode: Image.PreserveAspectFit
                         color: Theme.primaryColor
                         scale: resScale
-                        source: "../img/usb_b_plug.png"
+                        source: "../img/mini_usb_b_plug.png"
                     }
                 }
 
@@ -139,7 +145,7 @@ Page {
                         fillMode: Image.PreserveAspectFit
                         color: Theme.primaryColor
                         scale: resScale
-                        source: "../img/usb_b_receptacle.png"
+                        source: "../img/mini_usb_b_receptacle.png"
                     }
                 }
             }

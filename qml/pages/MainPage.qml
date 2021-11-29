@@ -65,6 +65,12 @@ Page {
                 icon: "../img/usb_icon.png"
             }
             ListElement {
+                page: "micro_usb_pins.qml"
+                title: qsTr("Mini/Micro USB")
+                section: "Connector Pin Assignments"
+                icon: "../img/micro_usb_icon.png"
+            }
+            ListElement {
                 page: "vga_pins.qml"
                 title: qsTr("VGA")
                 section: "Connector Pin Assignments"
@@ -154,6 +160,7 @@ Page {
         }
 
         VerticalScrollDecorator {
+            flickable: listView
         }
     }
 }
